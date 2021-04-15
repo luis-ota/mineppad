@@ -2,10 +2,11 @@
 __pycache__/
 *.py[cod]
 *$py.class
-
+.replit
 # C extensions
 *.so
-
+poetry.lock
+pyproject.toml
 # Distribution / packaging
 .Python
 build/
