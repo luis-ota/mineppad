@@ -1,12 +1,20 @@
+# Repl.it
+.replit
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
+<<<<<<< HEAD
 .vscode
 .idea
+=======
+.replit
+>>>>>>> ab9e078a33190f66ef1caae9edce775d40124ffb
 # C extensions
 *.so
-
+poetry.lock
+pyproject.toml
 # Distribution / packaging
 .Python
 build/
