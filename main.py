@@ -1,6 +1,6 @@
 # ===================================
 # Author: Luís Otávio
-# GitHub: https://github.com/luis-ss
+# GitHub: https://github.com/luis-ss/mineppad
 # Youtube Video:
 # Date created: 22/02/2021
 # ==================================
