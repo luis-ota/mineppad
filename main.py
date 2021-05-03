@@ -65,7 +65,11 @@ def play():
     for y in range(0, -3, -1):
         for z in range(-MainVariables.limites, MainVariables.limites):
             for x in range(-MainVariables.limites, MainVariables.limites):
-                voxel = Voxel(position=(x, y, z))
+                if y==0:
+                    voxel = Voxel(position=(x, y, z), texture=MainVariables.grama_txtr)
+                else:    
+                    voxel = Voxel(position=(x, y, z), texture=MainVariables.terra_txtr)
+
     # setting the mobs and trees
     Tree_generate(times=10)
     Mob_generate(mob_life=8, times=random.randint(2,3), enemy=True)
@@ -128,14 +132,24 @@ def seq():
 
 
 carga_roubada = {
-    'porquin_txtr': load_texture('carga_roubada/texturas/mobs/porquin_txtr.png'),
+    # textures
+    'porquin_txtr' : load_texture('carga_roubada/texturas/mobs/porquin_txtr.png'),
     'vaquinha_txtr': load_texture('carga_roubada/texturas/mobs/vaquinha_txtr.png'),
-    'braco_txtr': load_texture('carga_roubada/texturas/blocos/braco_txtr.png'),
-    'table_txtr': load_texture('carga_roubada/texturas/blocos/table_txtr.png'),
-    'ghost_puto': load_texture('carga_roubada/texturas/mobs/ghost_txtr/ghost_putasso.png'),
-    'mob_sound': Audio('mob_sound', loop=False, autoplay=False, volume=.05),
-    'mob_sound2': Audio('mob_sound2', loop=False, autoplay=False, volume=.5),
-    'ghost_sound': Audio('ghost_risada_cabulosa', loop=False, autoplay=False, volume=.2),
+    'braco_txtr'   : load_texture('carga_roubada/texturas/blocos/braco_txtr.png'),
+    'table_txtr'   : load_texture('carga_roubada/texturas/blocos/table_txtr.png'),
+    'grama_txtr'   : load_texture('carga_roubada/texturas/blocos/grama_txtr.png'),
+    'terra_txtr'   : load_texture('carga_roubada/texturas/blocos/terra_txtr.png'),
+
+    'ghost_puto'   : load_texture('carga_roubada/texturas/mobs/ghost_txtr/ghost_putasso.png'),
+
+    # icons
+    'table_icon': load_texture('carga_roubada/texturas/blocos/icons/table_icon.png'),
+    'grama_icon': load_texture('carga_roubada/texturas/blocos/icons/grama_icon.png'),
+
+    #sounds
+    'mob_sound'      : Audio('mob_sound', loop=False, autoplay=False, volume=.05),
+    'mob_sound2'     : Audio('mob_sound2', loop=False, autoplay=False, volume=.5),
+    'ghost_sound'    : Audio('ghost_risada_cabulosa', loop=False, autoplay=False, volume=.2),
     'ghost_hit_sound': Audio('ai_ui_do_ghost', loop=False, autoplay=False, volume=.2)
 }
 updict = {}
@@ -143,18 +157,29 @@ for frame in ['0', '1', '2', '3', '4']:
     filename = 'ghost_frame' + frame + '.png'
     updict[f'ghost_{frame}'] = load_texture(f'carga_roubada/texturas/mobs/ghost_txtr/{filename}')
 carga_roubada.update(updict)
-# send to modulos
 
+# send to modulos
+# textures
 MainVariables.porquin_txtr = carga_roubada['porquin_txtr']
 MainVariables.vaquinha_txtr = carga_roubada['vaquinha_txtr']
 MainVariables.braco_txtr = carga_roubada['braco_txtr']
 MainVariables.table_txtr = carga_roubada['table_txtr']
+MainVariables.grama_txtr = carga_roubada['grama_txtr']
+MainVariables.terra_txtr = carga_roubada['terra_txtr']
+
+# icons
+MainVariables.table_icon = carga_roubada['table_icon']
+MainVariables.grama_icon = carga_roubada['grama_icon']
+
+# ghost frames
 MainVariables.ghost_0 = carga_roubada['ghost_0']
 MainVariables.ghost_1 = carga_roubada['ghost_1']
 MainVariables.ghost_2 = carga_roubada['ghost_2']
 MainVariables.ghost_3 = carga_roubada['ghost_3']
 MainVariables.ghost_4 = carga_roubada['ghost_4']
 MainVariables.ghost_puto = carga_roubada['ghost_puto']
+
+# sounds
 MainVariables.mob_sound = carga_roubada['mob_sound']
 MainVariables.mob_sound2 = carga_roubada['mob_sound2']
 MainVariables.ghost_sound = carga_roubada['ghost_sound']

@@ -8,9 +8,9 @@ player_foi = False
 # will run when the game start
 def player_():
     global player_foi, texture_list, mob_frames
-    MainVariables.player = FirstPersonController(jump_height=1.65, speed=4, jump_duration=.469, air_time=-0.1, gravity=1)
+    MainVariables.player = FirstPersonController(jump_height=1.65, speed=4, gravity=1)
     player_foi = True
-    texture_list = {0: color.green,
+    texture_list = {0: MainVariables.grama_txtr,
                     1: color.gold,
                     2: MainVariables.table_txtr,
                     3: color.white,
@@ -27,7 +27,11 @@ class MainVariables:
     hp = 10
     table_txtr = None
     porquin_txtr = None
+    grama_txtr = None
+    table_icon = None
+    grama_icon = None
     braco_txtr = None
+    terra_txtr = None
     mob_sound = None
     mob_sound2 = None
     ghost_sound = None
@@ -46,7 +50,7 @@ class MainVariables:
 
 # blocks
 class Voxel(Button):
-    def __init__(self, position=(0, 0, 0), texture='white_cube', scale=1.0, model='cube'):
+    def __init__(self, position=(0, 0, 0), texture=MainVariables.grama_txtr , scale=.5, model=MainVariables.block):
         super().__init__(parent=scene,
                          position=position,
                          model=model,
@@ -92,7 +96,7 @@ class SetInventoryItems:
 
     def run(self=None):
         class InventoryItems(Entity):
-            def __init__(self, position, color, texture='white_cube'):
+            def __init__(self, position, color=color.white, texture='white_cube'):
                 super().__init__(
                     parent=camera.ui,
                     model='quad',
@@ -104,19 +108,19 @@ class SetInventoryItems:
                     color=color
                 )
 
-            # the itens size
+            # the slots sizes
             slot_positions = {'slot1small': (-0.265, -0.36),  # small
-                              'slot1big': (-0.27, -0.355),  # big
+                              'slot1big': (-0.27, -0.355),    # big
                               'slot2small': (-0.175, -0.36),  # small
-                              'slot2big': (-0.18, -0.355),  # big
+                              'slot2big': (-0.18, -0.355),    # big
                               'slot3small': (-0.085, -0.36),  # small
-                              'slot3big': (-0.09, -0.355),  # big
-                              'slot4small': (0.005, -0.36),  # small
-                              'slot4big': (0, -0.355),  # big
-                              'slot5small': (0.095, -0.36),  # small
-                              'slot5big': (0.09, -0.355),  # big
-                              'slot6small': (0.185, -0.36),  # small
-                              'slot6big': (0.18, -0.355)}  # big
+                              'slot3big': (-0.09, -0.355),    # big
+                              'slot4small': (0.005, -0.36),   # small
+                              'slot4big': (0, -0.355),        # big
+                              'slot5small': (0.095, -0.36),   # small
+                              'slot5big': (0.09, -0.355),     # big
+                              'slot6small': (0.185, -0.36),   # small
+                              'slot6big': (0.18, -0.355)}     # big
 
             # to inform whether it starts forward or backward
             initwithback = 0
@@ -237,17 +241,17 @@ class SetInventoryItems:
 
         # creating the slots
         slot1 = InventoryItems(position=(slot_coordinate["slot1"], -0.36),
-                               color=color.red)
+                               texture=MainVariables.grama_icon)
         slot2 = InventoryItems(position=(slot_coordinate["slot2"], -0.36),
-                               color=color.gold)
+                                )
         slot3 = InventoryItems(position=(slot_coordinate["slot3"], -0.36),
-                               color=color.white)
+                               texture=MainVariables.table_icon)
         slot4 = InventoryItems(position=(slot_coordinate["slot4"], -0.36),
-                               color=color.black)
+                               )
         slot5 = InventoryItems(position=(slot_coordinate["slot5"], -0.36),
-                               color=color.pink)
+                               )
         slot6 = InventoryItems(position=(slot_coordinate["slot6"], -0.36),
-                               color=color.green)
+                               )
 
 
 # generate the trees
