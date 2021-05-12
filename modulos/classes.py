@@ -1,6 +1,6 @@
 from ursina import *
 from ursina import curve
-from ursina.prefabs.first_person_controller import FirstPersonController
+from modulos.first_person_controller import FirstPersonController
 
 player_foi = False
 

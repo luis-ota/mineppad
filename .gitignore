@@ -1,6 +1,9 @@
 # Repl.it
 .replit
 .vscode
+.mineppad_venv
+.idea
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
