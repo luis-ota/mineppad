@@ -137,14 +137,20 @@ carga_roubada = {
     'vaquinha_txtr': load_texture('carga_roubada/texturas/mobs/vaquinha_txtr.png'),
     'braco_txtr'   : load_texture('carga_roubada/texturas/blocos/braco_txtr.png'),
     'table_txtr'   : load_texture('carga_roubada/texturas/blocos/table_txtr.png'),
+    'fornalha_txtr': load_texture('carga_roubada/texturas/blocos/fornalha_txtr.png'),
     'grama_txtr'   : load_texture('carga_roubada/texturas/blocos/grama_txtr.png'),
     'terra_txtr'   : load_texture('carga_roubada/texturas/blocos/terra_txtr.png'),
+    'pedra_txtr'   : load_texture('carga_roubada/texturas/blocos/pedra_txtr.png'),
+
 
     'ghost_puto'   : load_texture('carga_roubada/texturas/mobs/ghost_txtr/ghost_putasso.png'),
 
     # icons
-    'table_icon': load_texture('carga_roubada/texturas/blocos/icons/table_icon.png'),
-    'grama_icon': load_texture('carga_roubada/texturas/blocos/icons/grama_icon.png'),
+    'table_icon'   : load_texture('carga_roubada/texturas/blocos/icons/table_icon.png'),
+    'grama_icon'   : load_texture('carga_roubada/texturas/blocos/icons/grama_icon.png'),
+    'pedra_icon'   : load_texture('carga_roubada/texturas/blocos/icons/pedra_icon.png'),
+    'fornalha_icon': load_texture('carga_roubada/texturas/blocos/icons/fornalha_icon.png'),
+
 
     #sounds
     'mob_sound'      : Audio('mob_sound', loop=False, autoplay=False, volume=.05),
@@ -159,17 +165,23 @@ for frame in ['0', '1', '2', '3', '4']:
 carga_roubada.update(updict)
 
 # send to modulos
-# textures
+# Animals
 MainVariables.porquin_txtr = carga_roubada['porquin_txtr']
 MainVariables.vaquinha_txtr = carga_roubada['vaquinha_txtr']
+
+# blocks
 MainVariables.braco_txtr = carga_roubada['braco_txtr']
 MainVariables.table_txtr = carga_roubada['table_txtr']
 MainVariables.grama_txtr = carga_roubada['grama_txtr']
 MainVariables.terra_txtr = carga_roubada['terra_txtr']
+MainVariables.pedra_txtr = carga_roubada['pedra_txtr']
+MainVariables.fornalha_txtr = carga_roubada['fornalha_txtr']
 
 # icons
 MainVariables.table_icon = carga_roubada['table_icon']
 MainVariables.grama_icon = carga_roubada['grama_icon']
+MainVariables.pedra_icon = carga_roubada['pedra_icon']
+MainVariables.fornalha_icon = carga_roubada['fornalha_icon']
 
 # ghost frames
 MainVariables.ghost_0 = carga_roubada['ghost_0']

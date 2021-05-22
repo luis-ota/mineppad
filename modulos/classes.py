@@ -11,9 +11,9 @@ def player_():
     MainVariables.player = FirstPersonController(jump_height=1.65, speed=4, gravity=1)
     player_foi = True
     texture_list = {0: MainVariables.grama_txtr,
-                    1: color.gold,
+                    1: MainVariables.pedra_txtr,
                     2: MainVariables.table_txtr,
-                    3: color.white,
+                    3: MainVariables.fornalha_txtr,
                     4: color.black,
                     5: color.pink}
     mob_frames = [MainVariables.ghost_1, MainVariables.ghost_2, MainVariables.ghost_3, MainVariables.ghost_4]
@@ -25,22 +25,36 @@ class MainVariables:
     limites = None
     player = Entity()
     hp = 10
+
+    # blocks
     table_txtr = None
-    porquin_txtr = None
     grama_txtr = None
-    table_icon = None
-    grama_icon = None
     braco_txtr = None
     terra_txtr = None
+    pedra_txtr = None
+    fornalha_txtr = None
+    block = 'carga_roubada/texturas/models/block'
+
+    # icons 
+    table_icon = None
+    grama_icon = None
+    pedra_icon = None
+    fornalha_icon = None
+
+    # sounds
     mob_sound = None
     mob_sound2 = None
     ghost_sound = None
     ghost_hit_sound = None
+
+    # animals 
+    porquin_txtr = None
     vaquinha_txtr = None
-    ghost_puto = None
-    block = 'carga_roubada/texturas/models/block'
     vaquinha_model = 'carga_roubada/texturas/models/vaquinha_model'
     porquin_model = 'carga_roubada/texturas/models/porquin_model'
+
+    # ghost textures
+    ghost_puto = None
     ghost_0 = None
     ghost_1 = None
     ghost_2 = None
@@ -243,11 +257,11 @@ class SetInventoryItems:
         slot1 = InventoryItems(position=(slot_coordinate["slot1"], -0.36),
                                texture=MainVariables.grama_icon)
         slot2 = InventoryItems(position=(slot_coordinate["slot2"], -0.36),
-                                )
+                               texture=MainVariables.pedra_icon)
         slot3 = InventoryItems(position=(slot_coordinate["slot3"], -0.36),
                                texture=MainVariables.table_icon)
         slot4 = InventoryItems(position=(slot_coordinate["slot4"], -0.36),
-                               )
+                               texture=MainVariables.fornalha_icon)
         slot5 = InventoryItems(position=(slot_coordinate["slot5"], -0.36),
                                )
         slot6 = InventoryItems(position=(slot_coordinate["slot6"], -0.36),
