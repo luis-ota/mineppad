@@ -6,7 +6,7 @@ class FirstPersonController(Entity):
         super().__init__()
         self.speed = 5
         self.origin_y = -.5
-        self.camera_pivot = Entity(parent=self, y=2)
+        self.camera_pivot = Entity(parent=self, y=1.8569)
         self.cursor = Entity(parent=camera.ui, model='quad', color=color.pink, scale=.008, rotation_z=45)
 
         camera.parent = self.camera_pivot
@@ -18,7 +18,7 @@ class FirstPersonController(Entity):
 
         self.gravity = 1
         self.grounded = False
-        self.jump_height = 2
+        self.jump_height = 1.5
         self.jump_duration = .5
         self.jumping = False
         self.air_time = 0

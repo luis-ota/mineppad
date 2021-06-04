@@ -134,22 +134,26 @@ def seq():
 carga_roubada = {
     # textures
     'porquin_txtr' : load_texture('carga_roubada/texturas/mobs/porquin_txtr.png'),
-    'vaquinha_txtr': load_texture('carga_roubada/texturas/mobs/vaquinha_txtr.png'),
     'braco_txtr'   : load_texture('carga_roubada/texturas/blocos/braco_txtr.png'),
     'table_txtr'   : load_texture('carga_roubada/texturas/blocos/table_txtr.png'),
-    'fornalha_txtr': load_texture('carga_roubada/texturas/blocos/fornalha_txtr.png'),
     'grama_txtr'   : load_texture('carga_roubada/texturas/blocos/grama_txtr.png'),
     'terra_txtr'   : load_texture('carga_roubada/texturas/blocos/terra_txtr.png'),
     'pedra_txtr'   : load_texture('carga_roubada/texturas/blocos/pedra_txtr.png'),
-
-
+    'folha_txtr'   : load_texture('carga_roubada/texturas/blocos/folha_txtr.png'),
+    'vidro_txtr'   : load_texture('carga_roubada/texturas/blocos/vidro_txtr.png'),
+    'vaquinha_txtr': load_texture('carga_roubada/texturas/mobs/vaquinha_txtr.png'),
+    'arvore_txtr'  : load_texture('carga_roubada/texturas/blocos/arvore_txtr.png'),
+    'madeira_txtr' : load_texture('carga_roubada/texturas/blocos/madeira_txtr.png'),
+    'fornalha_txtr': load_texture('carga_roubada/texturas/blocos/fornalha_txtr.png'),
     'ghost_puto'   : load_texture('carga_roubada/texturas/mobs/ghost_txtr/ghost_putasso.png'),
 
     # icons
     'table_icon'   : load_texture('carga_roubada/texturas/blocos/icons/table_icon.png'),
     'grama_icon'   : load_texture('carga_roubada/texturas/blocos/icons/grama_icon.png'),
     'pedra_icon'   : load_texture('carga_roubada/texturas/blocos/icons/pedra_icon.png'),
+    'vidro_icon'   : load_texture('carga_roubada/texturas/blocos/icons/vidro_icon.png'),
     'fornalha_icon': load_texture('carga_roubada/texturas/blocos/icons/fornalha_icon.png'),
+    'madeira_icon' : load_texture('carga_roubada/texturas/blocos/icons/madeira_icon.png'),
 
 
     #sounds
@@ -175,12 +179,18 @@ MainVariables.table_txtr = carga_roubada['table_txtr']
 MainVariables.grama_txtr = carga_roubada['grama_txtr']
 MainVariables.terra_txtr = carga_roubada['terra_txtr']
 MainVariables.pedra_txtr = carga_roubada['pedra_txtr']
+MainVariables.folha_txtr = carga_roubada['folha_txtr']
+MainVariables.vidro_txtr = carga_roubada['vidro_txtr']
+MainVariables.arvore_txtr = carga_roubada['arvore_txtr']
+MainVariables.madeira_txtr = carga_roubada['madeira_txtr']
 MainVariables.fornalha_txtr = carga_roubada['fornalha_txtr']
 
 # icons
 MainVariables.table_icon = carga_roubada['table_icon']
 MainVariables.grama_icon = carga_roubada['grama_icon']
 MainVariables.pedra_icon = carga_roubada['pedra_icon']
+MainVariables.vidro_icon = carga_roubada['vidro_icon']
+MainVariables.madeira_icon = carga_roubada['madeira_icon']
 MainVariables.fornalha_icon = carga_roubada['fornalha_icon']
 
 # ghost frames

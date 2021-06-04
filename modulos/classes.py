@@ -8,14 +8,14 @@ player_foi = False
 # will run when the game start
 def player_():
     global player_foi, texture_list, mob_frames
-    MainVariables.player = FirstPersonController(jump_height=1.65, speed=4, gravity=1)
+    MainVariables.player = FirstPersonController(jump_height=1.269, speed=4, gravity=1)
     player_foi = True
     texture_list = {0: MainVariables.grama_txtr,
                     1: MainVariables.pedra_txtr,
                     2: MainVariables.table_txtr,
                     3: MainVariables.fornalha_txtr,
-                    4: color.black,
-                    5: color.pink}
+                    4: MainVariables.madeira_txtr,
+                    5: MainVariables.vidro_txtr}
     mob_frames = [MainVariables.ghost_1, MainVariables.ghost_2, MainVariables.ghost_3, MainVariables.ghost_4]
 
 
@@ -32,13 +32,19 @@ class MainVariables:
     braco_txtr = None
     terra_txtr = None
     pedra_txtr = None
+    folha_txtr = None
+    vidro_txtr = None
+    arvore_txtr = None
+    madeira_txtr = None
     fornalha_txtr = None
     block = 'carga_roubada/texturas/models/block'
 
     # icons 
+    vidro_icon = None
     table_icon = None
     grama_icon = None
     pedra_icon = None
+    madeira_icon = None
     fornalha_icon = None
 
     # sounds
@@ -263,9 +269,9 @@ class SetInventoryItems:
         slot4 = InventoryItems(position=(slot_coordinate["slot4"], -0.36),
                                texture=MainVariables.fornalha_icon)
         slot5 = InventoryItems(position=(slot_coordinate["slot5"], -0.36),
-                               )
+                               texture=MainVariables.madeira_icon)
         slot6 = InventoryItems(position=(slot_coordinate["slot6"], -0.36),
-                               )
+                               texture=MainVariables.vidro_icon)
 
 
 # generate the trees
@@ -276,26 +282,26 @@ def Tree_generate(times=None):
         z = random.randrange(-MainVariables.limites, MainVariables.limites)
 
         for y in range(1, 3):
-            stem = Voxel(position=(x, y, z), texture='white_cube')
+            stem = Voxel(position=(x, y, z), texture=MainVariables.arvore_txtr)
         x = int(stem.x - 1)
         z = int(stem.z - 1)
 
         def generate_leaves(z, x):
             for ze in range(z, z + 3):
                 for xiz in range(x, x + 3):
-                    leaf = Voxel(position=(xiz, 3, ze), texture='white_cube')
+                    leaf = Voxel(position=(xiz, 3, ze), texture=MainVariables.folha_txtr)
             z += 1
             x -= 1
             for ze in [z, z, z]:
                 x += 1
                 for xiz in [x]:
-                    leaf_top = Voxel(position=(xiz, 4, ze), texture='white_cube')
+                    leaf_top = Voxel(position=(xiz, 4, ze), texture=MainVariables.folha_txtr)
             z += 3
             x -= 1
             for xiz in [x, x]:
                 z -= 2
                 for ze in [z]:
-                    leaf_top = Voxel(position=(xiz, 4, ze), texture='white_cube')
+                    leaf_top = Voxel(position=(xiz, 4, ze), texture=MainVariables.folha_txtr)
 
         generate_leaves(z, x)
 
