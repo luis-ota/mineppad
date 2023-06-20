@@ -65,19 +65,20 @@ def play():
     for y in range(0, -3, -1):
         for z in range(-MainVariables.limites, MainVariables.limites):
             for x in range(-MainVariables.limites, MainVariables.limites):
-                if y==0:
+                if y == 0:
                     voxel = Voxel(position=(x, y, z), texture=MainVariables.grama_txtr)
-                else:    
+                else:
                     voxel = Voxel(position=(x, y, z), texture=MainVariables.terra_txtr)
 
     # setting the mobs and trees
     Tree_generate(times=10)
-    Mob_generate(mob_life=8, times=random.randint(2,3), enemy=True)
-    Mob_generate(mob_life=4, times=random.randint(1,5))
+    Mob_generate(mob_life=8, times=random.randint(0, 2), enemy=True)
+    Mob_generate(mob_life=6, times=random.randint(5, 7))
+    Audio('trilha', loop=True, autoplay=True, volume=.2),
 
 
 # setting the map limits in m²
-MainVariables.limites = 25
+MainVariables.limites = 30
 
 # setting the inventory
 inventory = Inventory()
@@ -88,19 +89,21 @@ health_bar.visible = False
 # decreases the player's HP if he falls
 mundo_y = -5
 vidas = 5
-count=0
+count = 0
 if health_bar.value > 0:
     def aumenta_vida():
-        if MainVariables.hp<10:
-            MainVariables.hp+=1
-        if MainVariables.hp>10:
+        if MainVariables.hp < 10:
+            MainVariables.hp += 1
+        if MainVariables.hp > 10:
             MainVariables.hp = 10
+
+
     def update():
         global mundo_y, vidas, count
-        count+=.69
-        if MainVariables.hp<10 and count>69:
+        count += .69
+        if MainVariables.hp < 10 and count > 69:
             invoke(aumenta_vida, delay=6.69)
-            count=0
+            count = 0
         MainVariables.hp = round(MainVariables.hp, 1)
         if MainVariables.hp // 1 == MainVariables.hp:
             MainVariables.hp = int(MainVariables.hp)
@@ -133,33 +136,32 @@ def seq():
 
 carga_roubada = {
     # textures
-    'porquin_txtr' : load_texture('carga_roubada/texturas/mobs/porquin_txtr.png'),
-    'braco_txtr'   : load_texture('carga_roubada/texturas/blocos/braco_txtr.png'),
-    'table_txtr'   : load_texture('carga_roubada/texturas/blocos/table_txtr.png'),
-    'grama_txtr'   : load_texture('carga_roubada/texturas/blocos/grama_txtr.png'),
-    'terra_txtr'   : load_texture('carga_roubada/texturas/blocos/terra_txtr.png'),
-    'pedra_txtr'   : load_texture('carga_roubada/texturas/blocos/pedra_txtr.png'),
-    'folha_txtr'   : load_texture('carga_roubada/texturas/blocos/folha_txtr.png'),
-    'vidro_txtr'   : load_texture('carga_roubada/texturas/blocos/vidro_txtr.png'),
+    'porquin_txtr': load_texture('carga_roubada/texturas/mobs/porquin_txtr.png'),
+    'braco_txtr': load_texture('carga_roubada/texturas/blocos/braco_txtr.png'),
+    'table_txtr': load_texture('carga_roubada/texturas/blocos/table_txtr.png'),
+    'grama_txtr': load_texture('carga_roubada/texturas/blocos/grama_txtr.png'),
+    'terra_txtr': load_texture('carga_roubada/texturas/blocos/terra_txtr.png'),
+    'pedra_txtr': load_texture('carga_roubada/texturas/blocos/pedra_txtr.png'),
+    'folha_txtr': load_texture('carga_roubada/texturas/blocos/folha_txtr.png'),
+    'vidro_txtr': load_texture('carga_roubada/texturas/blocos/vidro_txtr.png'),
     'vaquinha_txtr': load_texture('carga_roubada/texturas/mobs/vaquinha_txtr.png'),
-    'arvore_txtr'  : load_texture('carga_roubada/texturas/blocos/arvore_txtr.png'),
-    'madeira_txtr' : load_texture('carga_roubada/texturas/blocos/madeira_txtr.png'),
+    'arvore_txtr': load_texture('carga_roubada/texturas/blocos/arvore_txtr.png'),
+    'madeira_txtr': load_texture('carga_roubada/texturas/blocos/madeira_txtr.png'),
     'fornalha_txtr': load_texture('carga_roubada/texturas/blocos/fornalha_txtr.png'),
-    'ghost_puto'   : load_texture('carga_roubada/texturas/mobs/ghost_txtr/ghost_putasso.png'),
+    'ghost_puto': load_texture('carga_roubada/texturas/mobs/ghost_txtr/ghost_putasso.png'),
 
     # icons
-    'table_icon'   : load_texture('carga_roubada/texturas/blocos/icons/table_icon.png'),
-    'grama_icon'   : load_texture('carga_roubada/texturas/blocos/icons/grama_icon.png'),
-    'pedra_icon'   : load_texture('carga_roubada/texturas/blocos/icons/pedra_icon.png'),
-    'vidro_icon'   : load_texture('carga_roubada/texturas/blocos/icons/vidro_icon.png'),
+    'table_icon': load_texture('carga_roubada/texturas/blocos/icons/table_icon.png'),
+    'grama_icon': load_texture('carga_roubada/texturas/blocos/icons/grama_icon.png'),
+    'pedra_icon': load_texture('carga_roubada/texturas/blocos/icons/pedra_icon.png'),
+    'vidro_icon': load_texture('carga_roubada/texturas/blocos/icons/vidro_icon.png'),
     'fornalha_icon': load_texture('carga_roubada/texturas/blocos/icons/fornalha_icon.png'),
-    'madeira_icon' : load_texture('carga_roubada/texturas/blocos/icons/madeira_icon.png'),
+    'madeira_icon': load_texture('carga_roubada/texturas/blocos/icons/madeira_icon.png'),
 
-
-    #sounds
-    'mob_sound'      : Audio('mob_sound', loop=False, autoplay=False, volume=.05),
-    'mob_sound2'     : Audio('mob_sound2', loop=False, autoplay=False, volume=.5),
-    'ghost_sound'    : Audio('ghost_risada_cabulosa', loop=False, autoplay=False, volume=.2),
+    # sounds
+    'mob_sound': Audio('mob_sound', loop=False, autoplay=False, volume=.05),
+    'mob_sound2': Audio('mob_sound2', loop=False, autoplay=False, volume=.5),
+    'ghost_sound': Audio('ghost_risada_cabulosa', loop=False, autoplay=False, volume=.2),
     'ghost_hit_sound': Audio('ai_ui_do_ghost', loop=False, autoplay=False, volume=.2)
 }
 updict = {}
@@ -207,7 +209,7 @@ MainVariables.mob_sound2 = carga_roubada['mob_sound2']
 MainVariables.ghost_sound = carga_roubada['ghost_sound']
 MainVariables.ghost_hit_sound = carga_roubada['ghost_hit_sound']
 
-
 if __name__ == '__main__':
+    Sky(texture='carga_roubada/texturas/skybox')
     start_button.on_click = seq
     app.run()
