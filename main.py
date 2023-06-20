@@ -73,7 +73,7 @@ def play():
     # setting the mobs and trees
     Tree_generate(times=10)
     Mob_generate(mob_life=8, times=random.randint(0, 2), enemy=True)
-    Mob_generate(mob_life=6, times=random.randint(5, 7))
+    Mob_generate(mob_life=6, times=random.randint(3, 7))
     Audio('trilha', loop=True, autoplay=True, volume=.2),
 
 
