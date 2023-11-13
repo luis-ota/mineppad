@@ -5,6 +5,8 @@
 # Date created: February 2, 2021
 # ===================================
 #
+# last update 13/11/2023
+#
 # Welcome to...
 #
 #                                   -=- MINEPPAD -=-
@@ -13,7 +15,7 @@
 # |                  ...                   /+o++++/:                                  |
 # |           .-://++++++/:`          `.:++ooo++o+++o++/-`                            |
 # |         -//:/++++++++///      `.-/++++++oo+++o++++o+++/:.                         |
-# |         /+.`.+++++++////. ```:+o+++++o++++++oo++++++oo+o+/:` :y+s++o-/:.-``` `    |
+# |   z      /+.`.+++++++////. ```:+o+++++o++++++oo++++++oo+o+/:` :y+s++o-/:.-``` `    |
 # |         -+////:::++/////:`yhyo/o+++++o+oo++oo++++o+oo++//::./yysossssyyyysyy/::-  |
 # |       ``.----::://///////`ydy+/+++/++ooooo++++++oo+++//:-:::oy+////////+yyyo:+y+  |
 # |    .:///++++++++/////////`+dy+/+++://+o++o++++++//:::/::::/:oyysssooo+oyys/-shy:  |
@@ -28,9 +30,24 @@
 # |               .+syhhyyso/-`             .:///::.                      ``.---`     |
 # |___________________________________________________________________________________|
 
-from modulos.classes import *
-from ursina.prefabs.health_bar import HealthBar
 
+try:
+    from ursina.prefabs.health_bar import HealthBar
+    from modulos.classes import *
+except ImportError:
+    print("A biblioteca não está instalada. Instalando...")
+    try:
+        import pip
+        pip.main(['install', 'ursina==4'])
+        from ursina.prefabs.health_bar import HealthBar
+        from modulos.classes import *
+    except ImportError:
+        print("O pip não está instalado. Por favor, instale o pip manualmente e em seguida, execute 'pip install nome_da_biblioteca'.")
+
+# Restante do seu código aqui
+
+
+# Restante do seu código aqui
 app = Ursina()
 
 # setting menu
@@ -210,6 +227,7 @@ MainVariables.ghost_sound = carga_roubada['ghost_sound']
 MainVariables.ghost_hit_sound = carga_roubada['ghost_hit_sound']
 
 if __name__ == '__main__':
+
     Sky(texture='carga_roubada/texturas/skybox')
     start_button.on_click = seq
     app.run()
