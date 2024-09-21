@@ -400,7 +400,7 @@ def Tree_generate(times=None):
 
 
 # generate the mobs
-def Mob_generate(type_=None, times=None, enemy=False, mob_life=6):
+def Mob_generate(times=None, enemy=False, mob_life=6):
     def run():
         xz = []
         for vez in range(2):

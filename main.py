@@ -30,6 +30,9 @@
 # |               .+syhhyyso/-`             .:///::.                      ``.---`     |
 # |___________________________________________________________________________________|
 
+import os
+import subprocess
+import threading as th
 
 try:
     from ursina.prefabs.health_bar import HealthBar
@@ -38,16 +41,18 @@ except ImportError:
     print("A biblioteca não está instalada. Instalando...")
     try:
         import pip
-        pip.main(['install', 'ursina==4'])
+    except ImportError:
+        print("O pip não está instalado. Instalando pip...") 
+        subprocess.check_call([os.sys.executable, '-m', 'ensurepip', '--upgrade'])
+
+    subprocess.check_call([os.sys.executable, '-m', 'pip', 'install', 'ursina==4'])
+    try:
         from ursina.prefabs.health_bar import HealthBar
         from modulos.classes import *
     except ImportError:
-        print("O pip não está instalado. Por favor, instale o pip manualmente e em seguida, execute 'pip install nome_da_biblioteca'.")
+        print("Ainda não foi possível instalar as bibliotecas. Verifique as dependências.")
 
-# Restante do seu código aqui
-
-
-# Restante do seu código aqui
+    
 app = Ursina()
 
 # setting menu
@@ -88,7 +93,8 @@ def play():
                     voxel = Voxel(position=(x, y, z), texture=MainVariables.terra_txtr)
 
     # setting the mobs and trees
-    Tree_generate(times=10)
+    th.Thread(target=Tree_generate, args=(10,)).start()
+
     Mob_generate(mob_life=8, times=random.randint(0, 2), enemy=True)
     Mob_generate(mob_life=6, times=random.randint(3, 7))
     Audio('trilha', loop=True, autoplay=True, volume=.2),
