@@ -5,9 +5,7 @@ MinePPad is a Minecraft remake created in Notepad using Python and the Ursina li
 ## How to Play
 
 1. Clone the GitHub repository.
-2. Run the batch file inside the `app.zip` to launch the game.
-
-## How to Run the Script
+2. Run `python main.py`
 
 If you already have Ursina installed, uninstall it, as the `main.py` script will automatically install it.
 
